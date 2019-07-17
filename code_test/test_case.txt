@@ -41,3 +41,16 @@ root@NewNameSpace:/home/haolin/docker_learn/code# ps a
 // mount --make-slave :file change spread from parent to slave one way  e.g. /bin
 // mount --make-private :file change not shared  e.g. /proc
 // mount --make-unbindable :file can not bind e.g. /root
+
+
+----------------------------------------------------------
+NET
+----------------------------------------------------------
+root@NewNameSpace:/home/haolin/docker_learn/code# ping baidu.com
+ping: baidu.com: Temporary failure in name resolution
+
+// use veth make connection between different namespace
+
+
+
+
