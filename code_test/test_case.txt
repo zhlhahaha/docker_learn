@@ -26,3 +26,18 @@ NewNameSpace:/home/haolin/docker_learn/code# echo $$
 //With CLONE_NEWPID
 root@NewNameSpace:/home/haolin/docker_learn/code# echo $$
 1
+
+
+----------------------------------------------------------
+mount
+----------------------------------------------------------
+root@NewNameSpace:/home/haolin/docker_learn/code# mount -t proc proc /proc
+root@NewNameSpace:/home/haolin/docker_learn/code# ps a
+   PID TTY      STAT   TIME COMMAND
+     1 pts/0    S      0:00 /bin/bash
+     9 pts/0    R+     0:00 ps a
+
+// mount --make-shared :file change shared between namespace  e.g. /lib
+// mount --make-slave :file change spread from parent to slave one way  e.g. /bin
+// mount --make-private :file change not shared  e.g. /proc
+// mount --make-unbindable :file can not bind e.g. /root
