@@ -23,7 +23,7 @@ int child_main(void* args){
 
 int main(){
 	printf("start main function\n");
-	int child_pid = clone(child_main, child_stack + STACK_SIZE, CLONE_NEWUTS | SIGCHLD, NULL);
+	int child_pid = clone(child_main, child_stack + STACK_SIZE, CLONE_NEWIPC | CLONE_NEWUTS | SIGCHLD, NULL);
 	waitpid(child_pid, NULL, 0);
 	printf("exit\n");
 	return 0;
