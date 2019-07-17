@@ -1,2 +1,28 @@
-PID
+----------------------------------------------------------
+IPC
+----------------------------------------------------------
+//Create message queue
+ubuntu:/home/haolin/docker_test# ipcmk -Q
+Message queue id: 0
+//check exist message queue
+ubuntu:/home/haolin/docker_test# ipcs -q
 
+------ Message Queues --------
+key        msqid      owner      perms      used-bytes   messages    
+0xc6f15247 0          root       644        0            0           
+//add CLONE_NEWIPC and go into new namespace, check message queue
+NewNameSpace:/home/haolin/docker_test# ipcs -q
+
+------ Message Queues --------
+key        msqid      owner      perms      used-bytes   messages  
+
+
+----------------------------------------------------------
+PID
+----------------------------------------------------------
+//Without CLONE_NEWPID
+NewNameSpace:/home/haolin/docker_learn/code# echo $$
+4032
+//With CLONE_NEWPID
+root@NewNameSpace:/home/haolin/docker_learn/code# echo $$
+1
