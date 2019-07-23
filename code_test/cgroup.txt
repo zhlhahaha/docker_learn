@@ -1,0 +1,26 @@
+-------------------------------------------------------------------
+CPU
+-------------------------------------------------------------------
+e.g.
+$ cd /sys/fs/cgroup/cpu
+$ mkdir cg1
+$ ls cg1
+cgroup.clone_children  cpuacct.usage_percpu_sys   cpu.shares
+cgroup.procs           cpuacct.usage_percpu_user  cpu.stat
+cpuacct.stat           cpuacct.usage_sys          notify_on_release
+cpuacct.usage          cpuacct.usage_user         tasks
+cpuacct.usage_all      cpu.cfs_period_us
+cpuacct.usage_percpu   cpu.cfs_quota_us
+
+#limite process PID 18828 cpu usage to 20% of maxmum 
+$ echo 18828 >> /sys/fs/cgroup/cpu/cg1/tasks
+$ echo 20000 > /sys/fs/cgroup/cpu/cg1/cpu.cfs_quota_us
+
+#docker's cgroup limitation is under /sys/fs/cgroup/cpu/docker/
+#limite process PID 18828 to 2-3 cpu set
+$ echo 0 > /sys/fs/cgroup/cpuset/cg1/cpuset.mems
+$ echo "2-3" > /sys/fs/cgroup/cpuset/cg1/cpuset.cpus
+$ echo 18828 >> /sys/fs/cgroup/cpuset/cg1/tasts
+
+snap picture
+
