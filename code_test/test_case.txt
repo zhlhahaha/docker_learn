@@ -72,3 +72,5 @@ nobody@NewNameSpace:~/docker_learn/code$
 //set uid(success) set gid(failed)
 root@NewNameSpace:~/docker_learn/code# id
 uid=0(root) gid=65534(nogroup) groups=65534(nogroup)
+
+
